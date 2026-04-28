@@ -1,6 +1,5 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {Player} from './features/player/player';
 import {PlaylistNav} from './features/playlist/nav/playlist-nav/playlist-nav';
 
 @Component({
