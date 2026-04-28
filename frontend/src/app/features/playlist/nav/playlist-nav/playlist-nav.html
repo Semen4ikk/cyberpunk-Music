@@ -1,0 +1,11 @@
+<div>
+  <nav>
+    <ul>
+      @for (playlist of playlists; track playlist.slug){
+        <li>
+          <a [routerLink]="['/playlist', playlist.slug]">{{playlist.name}}</a>
+        </li>
+      }
+    </ul>
+  </nav>
+</div>
