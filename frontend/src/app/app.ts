@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {PlaylistNav} from './features/playlist/nav/playlist-nav/playlist-nav';
 
@@ -9,5 +9,4 @@ import {PlaylistNav} from './features/playlist/nav/playlist-nav/playlist-nav';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('frontend');
 }
