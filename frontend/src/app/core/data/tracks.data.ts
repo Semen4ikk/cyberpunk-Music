@@ -19,7 +19,7 @@ export const TRACKS: TrackModel[] = [
     cover: "images/cover-2.jpg",
     path: "",
     text: "Я пишу на плюсах и работаю в крипте (вообще тут должен быть текст песни, но т к песни нет, то и текста тоже)",
-    artist: ARTIST[2]
+    artist: ARTIST[1]
   },
   {
     id: "3",
@@ -28,7 +28,7 @@ export const TRACKS: TrackModel[] = [
     cover: "images/cover-4.jpg",
     path: "",
     text: "Мой сосед уехал и ему заблокировали пропуск, надеюсь он когда нибудь вернется(",
-    artist: ARTIST[2]
+    artist: ARTIST[0]
   },
   {
     id: "4",
@@ -37,7 +37,7 @@ export const TRACKS: TrackModel[] = [
     cover: "images/cover-3.jpg",
     path: "",
     text: "У меня крутая кофта на замке, коричневого цвета(вообще тут должен быть текст песни, но т к песни нет, то и текста тоже)",
-    artist: ARTIST[2]
+    artist: ARTIST[5]
   },
   {
     id: "5",
@@ -46,7 +46,7 @@ export const TRACKS: TrackModel[] = [
     cover: "images/cover-5.jpg",
     path: "",
     text: "кстати интересный факт: бананы в России дешевле чем яблоки(вообще тут должен быть текст песни, но т к песни нет, то и текста тоже)",
-    artist:ARTIST[2]
+    artist:ARTIST[1]
   },
   {
     id: "6",
@@ -55,7 +55,7 @@ export const TRACKS: TrackModel[] = [
     cover: "images/cover-6.jpg",
     path: "",
     text: "представьте сеье зелененький он был(вообще тут должен быть текст песни, но т к песни нет, то и текста тоже)",
-    artist: ARTIST[2]
+    artist: ARTIST[3]
   },
   {
     id: "7",
@@ -82,7 +82,7 @@ export const TRACKS: TrackModel[] = [
     cover: "images/cover-9.jpg",
     path: "",
     text: "Фруктовый лед (вообще тут должен быть текст песни, но т к песни нет, то и текста тоже)",
-    artist: ARTIST[2]
+    artist: ARTIST[1]
   },
   {
     id: "10",
@@ -91,7 +91,7 @@ export const TRACKS: TrackModel[] = [
     cover: "images/cover-10.jpg",
     path: "",
     text: "огонь по своим(вообще тут должен быть текст песни, но т к песни нет, то и текста тоже)",
-    artist: ARTIST[2]
+    artist: ARTIST[0]
   },
   {
     id: "11",
