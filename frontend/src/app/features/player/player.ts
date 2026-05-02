@@ -36,8 +36,7 @@ export class Player {
     const time = this.currentTime()
     const minutes = Math.floor(time / 60)
     const seconds = Math.floor(time % 60)
-    return `${minutes.toString().padStart(2, '0')}:
-    ${seconds.toString().padStart(2, '0')}:${Math.floor((time % 1)* 100)
+    return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}:${Math.floor((time % 1)* 100)
       .toString().padStart(2, '0')}`
   }
 
