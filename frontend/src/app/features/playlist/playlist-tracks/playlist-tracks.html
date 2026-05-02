@@ -1,0 +1,44 @@
+<div class="panel">
+  <div class="tabs">
+    <button class="tab" [class.active]="viewMode() === 'tracks'" (click)="setViewMode('tracks')">TRACKS</button>
+    <button class="tab" [class.active]="viewMode() === 'description'" (click)="setViewMode('description')">DESCRIPTION</button>
+  </div>
+
+  @if (viewMode() === 'tracks') {
+    <div class="grid">
+      @for (track of gridTracks(); track track?.id) {
+        <div class="cell"
+             [class.active]="isActiveTrack(track)"
+             (click)="selectTrack(track)"
+             [class.empty]="track === null">
+          @if (track) {
+            @if (isActiveTrack(track)){
+              <div class="equalizer">
+              <svg id="equalizer" width="40px" height="28px" viewBox="0 0 10 7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g fill="#000000">
+                  <rect id="bar1" transform="translate(0.500000, 6.000000) rotate(180.000000) translate(-0.500000, -6.000000) " x="0" y="5" width="1" height="2px"></rect>
+                  <rect id="bar2" transform="translate(3.500000, 4.500000) rotate(180.000000) translate(-3.500000, -4.500000) " x="3" y="2" width="1" height="5"></rect>
+                  <rect id="bar3" transform="translate(6.500000, 3.500000) rotate(180.000000) translate(-6.500000, -3.500000) " x="6" y="0" width="1" height="7"></rect>
+                  <rect id="bar4" transform="translate(9.500000, 5.000000) rotate(180.000000) translate(-9.500000, -5.000000) " x="9" y="3" width="1" height="4"></rect>
+                </g>
+              </svg>
+              </div>
+            }
+            <div class="cell-img" [style.background-image]="'url(' + track.cover + ')'"></div>
+            <div class="cell-label">{{ track.name }}</div>
+          } @else {
+            <div class="cell-empty"></div>
+          }
+        </div>
+      }
+    </div>
+  } @else {
+    <div class="description-view">
+      @if (activeTrack(); as track) {
+        <p>{{ track?.text ?? 'NO DESCRIPTION.' }}</p>
+      } @else {
+        <p>NO DESCRIPTION.</p>
+      }
+    </div>
+  }
+</div>
