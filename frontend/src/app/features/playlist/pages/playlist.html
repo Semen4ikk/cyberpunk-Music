@@ -1,4 +1,22 @@
-<div>
-  <p>playlist {{playlist()?.name}}!</p>
-  <app-player></app-player>
+<div class="Playlist1">
+  <div>
+    <h1>MOODBOARDS /  {{playlist()?.name}}</h1>
+    <app-player [currentTrack]="currentTrack()"
+                (handleSelectNextTrack)="selectNextTrack()"
+                (handleSelectPreviousTrack)="selectPreviousTrack()"
+
+    ></app-player>
+  </div>
+  <div class="track-list">
+    <div class="year">
+      <span>1990-2000</span>
+      <span>SCI-FI</span>
+    </div>
+    <app-playlist-tracks
+      [activeTrack]="currentTrack()"
+      [playlist]="playlist()"
+      (handleTrackSelect)="onTrackSelect($event)"
+    ></app-playlist-tracks>
+  </div>
+
 </div>

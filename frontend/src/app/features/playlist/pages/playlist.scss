@@ -1,0 +1,13 @@
+.year{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.Playlist1{
+  display: flex;
+  grid-template-columns: 60% 40%;
+}
+.track-list{
+  margin: 1rem;
+}

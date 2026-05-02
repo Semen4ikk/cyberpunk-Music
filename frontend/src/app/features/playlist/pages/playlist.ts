@@ -1,30 +1,60 @@
-import {Component, inject, signal} from '@angular/core';
+import {Component, computed, input, signal} from '@angular/core';
 import {Player} from '../../player/player';
-import {ActivatedRoute} from '@angular/router';
 import {PLAYLIST} from '../../../core/data/playlist.data';
-import {PlaylistModel} from '../../../core/models/playlist.model';
+import {TrackModel} from '../../../core/models/track.model';
+import {PlaylistTracks} from '../playlist-tracks/playlist-tracks';
+import {TRACKS} from '../../../core/data/tracks.data';
 
 @Component({
   selector: 'app-playlist-page',
   imports: [
-    Player
+    Player,
+    PlaylistTracks
   ],
   templateUrl: './playlist.html',
   styleUrl: './playlist.scss',
 })
 export class Playlist {
-  playlist = signal<PlaylistModel | null>(null)
+  slug = input.required<string>();
+  playlist = computed(()=>PLAYLIST.find((playlist) => playlist.slug ===
+    this.slug()));
 
-  private activatedRoute = inject(ActivatedRoute);
+  currentTrack = signal<TrackModel | null>(TRACKS[0])
 
-  constructor() {
-    this.activatedRoute.params.subscribe(params => {
-      const foundPlaylist = PLAYLIST.find((playlist) => playlist.slug
-        === params['slug'])
-      this.playlist.set(foundPlaylist || null);
-
-      console.log('found playlist', foundPlaylist?.name);
-      console.log("params route", params);
-    })
+  onTrackSelect(track: TrackModel) {
+    this.currentTrack.set(track);
   }
+
+  selectNextTrack() {
+    const playlist = this.playlist();
+    if(!playlist) return
+
+    const currentTrack = this.currentTrack();
+    if (!currentTrack) return
+
+    const currentIndex = playlist.tracks.findIndex((track) => track.id === currentTrack.id);
+    const nextIndex = (currentIndex + 1) % playlist.tracks.length;
+    const nextTrack = playlist.tracks[nextIndex];
+
+    this.currentTrack.set(nextTrack)
+  }
+
+  selectPreviousTrack() {
+    const playlist = this.playlist();
+    if(!playlist) return
+
+    const currentTrack = this.currentTrack();
+    if (!currentTrack) return
+
+    const currentIndex = playlist.tracks.findIndex((track) => track.id === currentTrack.id);
+    const previousIndex = (currentIndex - 1) % playlist.tracks.length;
+
+    const previousTrack = playlist.tracks[previousIndex];
+
+    this.currentTrack.set(previousTrack);
+
+  }
+
+
+  protected readonly ontimeupdate = ontimeupdate;
 }
