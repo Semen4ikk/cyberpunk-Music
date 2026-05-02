@@ -36,6 +36,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/cyberpunk-Music/",
               "budgets": [
                 {
                   "type": "initial",
