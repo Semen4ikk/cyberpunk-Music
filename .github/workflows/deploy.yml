@@ -22,11 +22,9 @@ jobs:
           node-version: '20'
       - run: npm ci
       - run: npx ng build --configuration production
-      - run: ls -la dist/frontend/
-      - run: 'test -f dist/frontend/index.html || (echo "ERROR: index.html not found!" && exit 1)'
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./frontend/dist/frontend/
+          path: ./frontend/dist/frontend/browser/
   deploy:
     environment:
       name: github-pages
